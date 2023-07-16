@@ -60,3 +60,6 @@ gem 'dotenv-rails'
 
 # Devise install
 gem 'devise'
+
+# enum install
+gem 'enum_help'

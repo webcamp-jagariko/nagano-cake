@@ -1,0 +1,54 @@
+@use '~bootstrap/scss/bootstrap';
+
+// team_template
+.windowLayout {
+  padding: 5px;
+    width: calc(100% - 150px);
+    min-width: 800px;
+}
+
+.nav-style {
+  padding: 1rem 5rem;
+}
+
+@media (max-width: 1000px) {
+  .windowLayout {
+      width: 100%;
+      min-width: unset;
+  }
+}
+
+.window-size {
+  width: 1200px;
+  margin:auto;
+}
+
+// サイドバー有コンテナ
+.window-padding {
+  margin:auto;
+  width:calc(100% - 100px);
+  padding: 2rem 0;
+}
+
+.sidebar-gap {
+  display:flex;
+  column-gap: 4%
+}
+
+.sidebar-width {
+  width: 21%;
+}
+
+.sidebar-main-width {
+  width: 75%;
+}
+
+// 中央寄せ用コンテナ
+.middle-container {
+  margin:auto;
+  width:calc(100% - 100px)
+}
+
+.middle-padding {
+  padding: 0 2rem;
+}
