@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Navbar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+
+  <body style="background-color: gray;">
+      <header>
+      <nav class="navbar navbar-expand-md navbar-light" style="padding: 1rem 5rem; background-color: skyblue;">
+        <div class="windowLayout container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <p style="margin: 0">ようこそ○○さん</p>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link px-3" href="#">Home</a>
+              <a class="nav-link px-3" href="#">Features</a>
+              <a class="nav-link px-3" href="#">Pricing</a>
+              <a class="nav-link px-3" href="#">Disabled</a>
+            </div>
+          </div>
+        </div>
+
+      </nav>
+    </header>
+    <main >
+      <div style="width: 1200px; height: 100vh; margin:auto; background-color: white;">
+        <div style="margin:auto; width:calc(100% - 100px); padding: 2rem 0;">
+
+          <!--サイドバー付・広め-->
+          <div style="display:flex; column-gap: 4%">
+            <section style="width: 21%; background-color: red">
+              <p>サイドメニュー</p>
+            </section>
+            <div style="width: 75%; background-color: red">
+              <h2>タイトル</h2>
+            </div>
+          </div>
+
+          <br/>
+
+          <!--その他-->
+          <div style="margin:auto; width:calc(100% - 100px)">
+            <h4><span style="padding: 0 2rem; background-color: red;">中央寄せ用</span></h4>
+            <div style="height: 300px; background-color: lightyellow">
+              中身
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
