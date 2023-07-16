@@ -1,1 +1,26 @@
 @use '~bootstrap/scss/bootstrap';
+
+.header_padding {
+  padding: 0 2rem;
+}
+
+.sub_container_position {
+  margin: 50px auto;
+}
+
+// public/customer/register
+.label-width {
+  width: 250px;
+}
+
+.label-position {
+  position: relative;
+}
+
+.field-width {
+  width: 200px;
+}
+
+.field-address {
+  width: 100%;
+}
