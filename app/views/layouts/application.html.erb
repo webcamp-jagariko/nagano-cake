@@ -11,6 +11,27 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-md navbar-light nav-style">
+        <div class="windowLayout container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <p class="m-0">ようこそ○○さん</p>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link px-3" href="#">Home</a>
+              <a class="nav-link px-3" href="#">Features</a>
+              <a class="nav-link px-3" href="#">Pricing</a>
+              <a class="nav-link px-3" href="#">Disabled</a>
+            </div>
+          </div>
+        </div>
+
+      </nav>
     <%= yield %>
   </body>
 </html>
