@@ -27,6 +27,11 @@
               <a class="nav-link px-3" href="#">Features</a>
               <a class="nav-link px-3" href="#">Pricing</a>
               <a class="nav-link px-3" href="#">Disabled</a>
+              <% if admin_signed_in? %>
+                <li>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                </li>
+              <% end %>
             </div>
           </div>
         </div>
