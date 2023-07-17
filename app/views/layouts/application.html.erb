@@ -16,7 +16,9 @@
     <nav class="navbar navbar-expand-md navbar-light nav-style">
         <div class="windowLayout container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
-          <p class="m-0">ようこそ○○さん</p>
+          <% if customer_signed_in? %>
+            <p class="m-0">ようこそ○○さん</p>
+          <% end %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -24,14 +26,30 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link px-3" href="#">Home</a>
-              <a class="nav-link px-3" href="#">Features</a>
-              <a class="nav-link px-3" href="#">Pricing</a>
-              <a class="nav-link px-3" href="#">Disabled</a>
+              <% if customer_signed_in? %>
+                <a class="nav-link px-3" href="/public/customers/show">マイページ</a>
+                <a class="nav-link px-3" href="/public/items/index">商品一覧</a>
+                <a class="nav-link px-3" href="/public/cart_items/index">カート</a>
+                <li class="nav-item px-3">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link'  %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <a class="nav-link px-3" href="/admin/items/index">商品一覧</a>
+                <a class="nav-link px-3" href="/admin/customers/index">会員一覧</a>
+                <a class="nav-link px-3" href="/admin/homes/top">注文履歴一覧</a>
+                <a class="nav-link px-3" href="/admin/genres/index">ジャンル一覧</a>
+                <li class="nav-item px-3">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
+                </li>
+              <% else %>
+                <a class="nav-link px-3" href="/public/homes/about">About</a>
+                <a class="nav-link px-3" href="/public/items/index">商品一覧</a>
+                <a class="nav-link px-3" href="/customers/sign_up">新規登録</a>
+                <a class="nav-link px-3" href="/customers/sign_in">ログイン</a>
+              <% end %>
             </div>
           </div>
         </div>
-
       </nav>
     <%= flash[:notice] %>
     <%= yield %>
