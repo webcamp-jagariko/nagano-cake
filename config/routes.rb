@@ -43,8 +43,8 @@ Rails.application.routes.draw do
     get 'items/show'
   end
   namespace :public do
-    get 'homes/top'
-    get 'homes/about'
+    get 'homes/top', as: 'top'
+    get 'homes/about', as: 'about'
   end
 # 顧客用
 # URL /customers/sign_in ...
