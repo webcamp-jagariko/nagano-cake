@@ -2,7 +2,15 @@
 
   <div class="sub_container_position">
     <h4><span>商品新規登録</span></h4>
-    <%= form_with model: @item do |f| %>
+    <%= form_with model: @item, url: admin_items_path do |f| %>
+
+      <div class="field">
+        <%= f.label :商品画像, class: "label-width" %>
+        </span>
+        <span>
+          <%= f.file_field :image, accept: "image/*" %>
+        </span>
+      </div>
 
       <div class="field">
         <%= f.label :商品名, class: "label-width" %>
@@ -25,6 +33,8 @@
         <%= f.label :税抜価格, class: "label-width" %>
         <%= f.number_field :price, placeholder: "1000", class: "field-width" %>
       </div>
+
+      <!--販売ステータス-->
 
       <div class="actions text-center">
         <%= f.submit "新規登録", class: "btn btn-success" %>
