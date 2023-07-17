@@ -20,12 +20,12 @@ before_action :authenticate_customer!, except: [:top, :homes]
     end
   end
 
-  def confirm
-  end
-
-
-
   def withdraw
+    customer = Customer.find(current_customer.id)
+    customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "正常に退会いたしました"
+    redirect_to root_path
   end
 
   private

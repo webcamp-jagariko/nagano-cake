@@ -9,7 +9,7 @@
     </p>
     <div >
       <%= link_to "退会しない", customers_mypage_path, class: "btn btn-primary padding-x margin-x" %>
-      <%= link_to "退会する", customers_withdraw_path, methed: :patch, class: "btn btn-danger padding-x margin-x" %>
+      <%= link_to "退会する", customers_withdraw_path, method: :PATCH, class: "btn btn-danger padding-x margin-x", "data-confirm"=>"本当に退会しますか？" %>
     </div>
 
   </div>

@@ -12,6 +12,7 @@
 
   <body>
 
+
     <nav class="navbar navbar-expand-md navbar-light nav-style">
         <div class="windowLayout container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
@@ -32,6 +33,7 @@
         </div>
 
       </nav>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
