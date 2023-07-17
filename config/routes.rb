@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # root to: 'homes#about'
-  # root to: 'public/homes#about'
+  root to: 'public/homes#top'
   scope module: :public do
     get 'homes/top' => 'homes#top'
     get 'homes/about' => 'homes#about'
