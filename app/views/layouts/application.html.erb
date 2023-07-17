@@ -28,8 +28,12 @@
               <a class="nav-link px-3" href="#">Pricing</a>
               <a class="nav-link px-3" href="#">Disabled</a>
               <% if admin_signed_in? %>
-                <li>
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                  <a class="nav-link px-3" href="/admin/items/index">商品一覧</a>
+                  <a class="nav-link px-3" href="/admin/customers/index">会員一覧</a>
+                  <a class="nav-link px-3" href="/admin/homes/top">注文履歴一覧</a>
+                  <a class="nav-link px-3" href="/admin/genres/index">ジャンル一覧</a>
+                <li class="nav-item px-3">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
                 </li>
               <% end %>
             </div>
