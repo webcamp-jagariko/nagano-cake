@@ -49,10 +49,7 @@ Rails.application.routes.draw do
     get 'items/index'
     get 'items/show'
   end
-  # namespace :public do
-  #   get 'homes/top', as: 'top'
-  #   get 'homes/about', as: 'about'
-  # end
+  
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
