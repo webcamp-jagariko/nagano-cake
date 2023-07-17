@@ -55,10 +55,6 @@
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
                 </li>
               <% else %>
-                <a class="nav-link px-3" href="/public/homes/about">About</a>
-                <a class="nav-link px-3" href="/public/items/index">商品一覧</a>
-                <a class="nav-link px-3" href="/customers/sign_up">新規登録</a>
-                <a class="nav-link px-3" href="/customers/sign_in">ログイン</a>
                 <li class="nav-item px-3">
                   <%= link_to "About", public_about_path, class: 'nav-link'  %>
                 </li>
