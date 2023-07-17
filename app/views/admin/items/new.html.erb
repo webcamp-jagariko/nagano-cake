@@ -1,0 +1,37 @@
+<div class="container" style="width: fit-content">
+
+  <div class="sub_container_position">
+    <h4><span>商品新規登録</span></h4>
+    <%= form_with model: @item do |f| %>
+
+      <div class="field">
+        <%= f.label :商品名, class: "label-width" %>
+        </span>
+        <span>
+          <%= f.text_field :name, placeholder: "商品名", class: "field-width" %>
+        </span>
+      </div>
+
+      <div class="field">
+        <%= f.label :商品説明, class: "label-width" %>
+        <span>
+          <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "field-width" %>
+        </span>
+      </div>
+
+<!--ジャンル記述-->
+
+      <div class="field">
+        <%= f.label :税抜価格, class: "label-width" %>
+        <%= f.number_field :price, placeholder: "1000", class: "field-width" %>
+      </div>
+
+      <div class="actions text-center">
+        <%= f.submit "新規登録", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+
