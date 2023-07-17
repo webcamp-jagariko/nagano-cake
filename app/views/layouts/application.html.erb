@@ -14,9 +14,9 @@
 
     <nav class="navbar navbar-expand-md navbar-light nav-style">
         <div class="windowLayout container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="/homes/top">Navbar</a>
           <% if customer_signed_in? %>
-            <p class="m-0">ようこそ○○さん</p>
+            <p class="m-0">ようこそ <%= "#{current_customer.last_name} #{current_customer.first_name}" %> さん</p>
           <% end %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -27,7 +27,7 @@
             <div class="navbar-nav">
               <% if customer_signed_in? %>
                 <li class="nav-item px-3">
-                  <%= link_to "マイページ", public_customers_show_path, class: 'nav-link'  %>
+                  <%= link_to "マイページ", customers_mypage_path, class: 'nav-link'  %>
                 </li>
                 <li class="nav-item px-3">
                   <%= link_to "商品一覧", public_items_index_path, class: 'nav-link'  %>
@@ -56,7 +56,7 @@
                 </li>
               <% else %>
                 <li class="nav-item px-3">
-                  <%= link_to "About", public_about_path, class: 'nav-link'  %>
+                  <%= link_to "About", homes_about_path, class: 'nav-link'  %>
                 </li>
                 <li class="nav-item px-3">
                   <%= link_to "商品一覧", public_items_index_path, class: 'nav-link'  %>

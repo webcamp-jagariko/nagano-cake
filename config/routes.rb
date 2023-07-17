@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  
+  root to: 'public/homes#top'
+  scope module: :public do
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/introduction/edit' => 'customers#edit'
+    patch 'customers/introduction' => 'customers#update'
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    get 'homes/top' => 'homes#top'
+    get 'homes/about' => 'homes#about'
+  end
+  
   namespace :admin do
     get 'orders/show'
   end
@@ -40,10 +52,7 @@ Rails.application.routes.draw do
     get 'items/index'
     get 'items/show'
   end
-  namespace :public do
-    get 'homes/top', as: 'top'
-    get 'homes/about', as: 'about'
-  end
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {

@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_premitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    public_about_path #仮
+    homes_about_path #仮
   end
 
   def after_sign_out_path_for(resource)
-    public_about_path #仮
+    homes_about_path #仮
   end
 
   protected
