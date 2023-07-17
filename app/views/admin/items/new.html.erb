@@ -2,7 +2,7 @@
 
   <div class="sub_container_position">
     <h4><span>商品新規登録</span></h4>
-    <%= form_with model: @item, url: admin_items_path(@item.id) do |f| %>
+    <%= form_with model: @item, url: admin_items_path do |f| %>
 
       <div class="field">
         <%= f.label :商品画像, class: "label-width" %>
@@ -27,6 +27,7 @@
         <%= f.label :税抜価格, class: "label-width" %>
         <%= f.number_field :price, placeholder: "1000", class: "field-width" %>
       </div>
+
       <div class="field">
         <%= f.label :販売ステータス, class: "label-width" %>
         <%= f.radio_button :is_active, true %>
@@ -34,6 +35,7 @@
         <%= f.radio_button :is_active, {value: :false} %>
         <%= f.label :is_active, "販売停止中" %>
       </div>
+
       <div class="actions text-center">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div>
