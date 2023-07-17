@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, only: [:index, :new, :create, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
-  
+
   namespace :admin do
     get 'homes/top'
   end
