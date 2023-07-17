@@ -2,7 +2,7 @@
 
   <div class="sub_container_position">
       <h4><span>管理者ログイン</span></h4>
-       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+       <%= form_with(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
          <div class="field">
            <%= f.label :メールアドレス, class: "field-width" %>
            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-width" %>
