@@ -11,12 +11,11 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-expand-md navbar-light nav-style">
         <div class="windowLayout container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="/homes/top">Navbar</a>
           <% if customer_signed_in? %>
-            <p class="m-0">ようこそ○○さん</p>
+            <p class="m-0">ようこそ <%= "#{current_customer.last_name} #{current_customer.first_name}" %> さん</p>
           <% end %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -26,30 +25,53 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <% if customer_signed_in? %>
-                <a class="nav-link px-3" href="/public/customers/show">マイページ</a>
-                <a class="nav-link px-3" href="/public/items/index">商品一覧</a>
-                <a class="nav-link px-3" href="/public/cart_items/index">カート</a>
+                <li class="nav-item px-3">
+                  <%= link_to "マイページ", customers_mypage_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "商品一覧", public_items_index_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "カート", public_cart_items_index_path, class: 'nav-link'  %>
+                </li>
                 <li class="nav-item px-3">
                   <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link'  %>
                 </li>
               <% elsif admin_signed_in? %>
-                <a class="nav-link px-3" href="/admin/items/index">商品一覧</a>
-                <a class="nav-link px-3" href="/admin/customers/index">会員一覧</a>
-                <a class="nav-link px-3" href="/admin/homes/top">注文履歴一覧</a>
-                <a class="nav-link px-3" href="/admin/genres/index">ジャンル一覧</a>
+                <li class="nav-item px-3">
+                  <%= link_to "商品一覧", admin_items_index_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "会員一覧", admin_customers_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "注文履歴一覧", admin_homes_top_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "ジャンル一覧", admin_genres_index_path, class: 'nav-link'  %>
+                </li>
                 <li class="nav-item px-3">
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
                 </li>
               <% else %>
-                <a class="nav-link px-3" href="/public/homes/about">About</a>
-                <a class="nav-link px-3" href="/public/items/index">商品一覧</a>
-                <a class="nav-link px-3" href="/customers/sign_up">新規登録</a>
-                <a class="nav-link px-3" href="/customers/sign_in">ログイン</a>
+                <li class="nav-item px-3">
+                  <%= link_to "About", homes_about_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "商品一覧", public_items_index_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link'  %>
+                </li>
+                <li class="nav-item px-3">
+                  <%= link_to "ログイン", new_customer_session_path, class: 'nav-link'  %>
+                </li>
               <% end %>
             </div>
           </div>
         </div>
       </nav>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

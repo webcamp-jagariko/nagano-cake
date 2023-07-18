@@ -2,25 +2,23 @@
 
   <div class="sub_container_position">
   <h4><span>ログイン</span></h4>
+  <br>
+  <h5><span>会員の方はこちらからログイン</span></h5>
+    <%= form_with model: @customer, url: customer_session_path do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "label-width"  %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com" %>
+      </div>
 
-<br>
-    <h5><span>会員の方はこちらからログイン</span></h5>
-      <%= form_with model: @customer, url: customer_session_path do |f| %>
-        <div class="field">
-          <%= f.label :email, "メールアドレス", class: "label-width"  %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com" %>
-        </div>
+      <div class="field">
+        <%= f.label :password, "パスワード", class: "label-width"  %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :password, "パスワード", class: "label-width"  %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-        <div class="actions text-center">
-          <%= f.submit "ログイン", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-
+      <div class="actions text-center">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 
   <div class="sub_container_position">
