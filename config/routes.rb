@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   namespace :public do
-    resources :shipping_addresses, only:  [:index,:create, :edit, :update, :destroy]
+    resources :shipping_addresses, only:  [:index, :create, :edit, :update, :destroy]
   end
   scope module: :public do
     get 'orders' => 'orders#index'
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     get 'items/index'
     get 'items/show'
   end
-  
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
