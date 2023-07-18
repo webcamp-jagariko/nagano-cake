@@ -21,8 +21,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   namespace :public do
-    get 'shipping_addresses/index'
-    get 'shipping_addresses/edit'
+    resources :shipping_addresses, only:  [:index,:create, :edit, :update, :destroy]
   end
   namespace :public do
     get 'orders/new'
