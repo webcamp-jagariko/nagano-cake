@@ -1,2 +1,59 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="margin-y container">
+  <div class="row">
+
+    <section class="col-md-3">
+      <div class="card border-dark col-10 rounded-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h5 class="text-center">ジャンル検索</h5></li>
+          <% @genres.each do |genre|%>
+            <li class="list-group-item border-0">
+              <!--後にlink_toへ変更-->
+              <%= genre.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+
+    <main class="col-md-9">
+      <div class="top-image-box">
+        <div class="top-image" style="background-image: url(<%= asset_path 'no_image.jpg' %>);"></div>
+        <p class="text-center top-image-text">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+
+      <div class="margin-y">
+        <h2>新規商品</h2>
+        <div class="container margin-y">
+          <div class="row">
+            <% @items.each do |item|%>
+            <div class="col-3 p-0">
+              <div style="margin: 5px">
+                <div class="card bg-transparent border-0">
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image, class: "card-img-top rounded-0 card-image" %>
+                  <% else %>
+                    <%= image_tag 'no_image.jpg', class: "card-img-top rounded-0" %>
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= item.name %></h5>
+                    <p>￥<%= item.price %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="align-right">
+          <%= link_to "全ての商品を見る＞", items_path %>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
