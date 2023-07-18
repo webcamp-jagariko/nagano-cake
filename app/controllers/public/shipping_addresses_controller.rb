@@ -14,7 +14,7 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.new(shipping_address_params)
     @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
-      redirect_to public_shipping_addresses_path, notice:  "You have created book successfully."
+      redirect_to shipping_addresses_path, notice:  "You have created book successfully."
     else
       @shipping_addresses = current_customer.shipping_addresses
       render 'index'
@@ -24,7 +24,7 @@ class Public::ShippingAddressesController < ApplicationController
   def update
     @shipping_address = ShippingAddress.find(params[:id])
     if @shipping_address.update(shipping_address_params)
-      redirect_to public_shipping_addresses_path, notice: "You have updated book successfully."
+      redirect_to shipping_addresses_path, notice: "You have updated book successfully."
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class Public::ShippingAddressesController < ApplicationController
   def destroy
     @shipping_address = ShippingAddress.find(params[:id])
     @shipping_address.destroy
-    redirect_to public_shipping_addresses_path
+    redirect_to shipping_addresses_path
   end
 
   private

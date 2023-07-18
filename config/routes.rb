@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
-  namespace :public do
+  scope module: :public do
     resources :shipping_addresses, only:  [:index, :create, :edit, :update, :destroy]
   end
   scope module: :public do
