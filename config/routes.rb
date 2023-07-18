@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'public/homes#top'
   scope module: :public do
     get 'customers/mypage' => 'customers#show'
@@ -14,9 +15,7 @@ Rails.application.routes.draw do
     get 'orders/show'
   end
   namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+    resources :customers, only: %i[index show edit update]
   end
 
   namespace :admin do
