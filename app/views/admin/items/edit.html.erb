@@ -5,31 +5,31 @@
     <%= form_with model: @item, url: admin_item_path do |f| %>
 
       <div class="field">
-        <%= f.label :商品画像, class: "label-width" %>
+        <%= f.label :image, "商品画像", class: "label-width" %>
           <%= f.file_field :image, accept: "image/*" %>
       </div>
 
       <div class="field">
-        <%= f.label :商品名, class: "label-width" %>
+        <%= f.label :name, "商品名", class: "label-width" %>
           <%= f.text_field :name, placeholder: "商品名", class: "field-width" %>
       </div>
 
       <div class="field">
-        <%= f.label :商品説明, class: "label-width" %>
+        <%= f.label :introduction, "商品説明", class: "label-width" %>
           <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "field-width" %>
       </div>
 
       <div class="field">
-        <%= f.label :ジャンル, class: "label-width" %>
+        <%= f.label :genre_id, "ジャンル", class: "label-width" %>
           <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--選択してください--" %>
       </div>
       <div class="field">
-        <%= f.label :税抜価格, class: "label-width" %>
-        <%= f.number_field :price, placeholder: "1000", class: "field-width" %>
+        <%= f.label :price, "税抜価格", class: "label-width" %>
+        <%= f.number_field :price, placeholder: "1000", class: "field-width" %>円
       </div>
 
       <div class="field">
-        <%= f.label :販売ステータス, class: "label-width" %>
+        <%= f.label :is_active, "販売ステータス", class: "label-width" %>
         <%= f.radio_button :is_active, :true %>
         <%= f.label :is_active, "販売中" %>
         <%= f.radio_button :is_active, :false %>

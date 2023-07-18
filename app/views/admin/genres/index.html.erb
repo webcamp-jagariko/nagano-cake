@@ -3,7 +3,7 @@
   <div class='row'>
     <div class='col-md-5 mt-3'>
 <%= form_with model: @genre, url: admin_genres_path do |f| %>
-  <%= f.label :ジャンル名 %>
+  <%= f.label :name, "ジャンル名" %>
   <%= f.text_field :name %>
   <%= f.submit '新規登録' %>
 <% end %>
