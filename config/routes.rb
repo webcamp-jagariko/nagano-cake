@@ -39,15 +39,15 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     get 'orders/show' => 'orders#show'
   end
+
   namespace :public do
-    get 'cart_items/index'
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   namespace :public do
-    get 'items/index'
-    get 'items/show'
+    resources :items, only: [:index, :show]
   end
-  
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {

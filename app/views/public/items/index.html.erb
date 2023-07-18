@@ -1,21 +1,41 @@
 <div class="container">
 
-  <div class="sub_container_position">
+  <div class="sub_container_position ml-5">
     <h4><span>商品詳細</span></h4>
   <div class='row'>
 
-    <!--ジャンル-->
-    <div class='col-md-3 mt-3 border'>
-      <span class="border-bottom">ジャンル検索</span>
+    <!--ジャンル,後ほどジャンル検索追加-->
+    <div class='col-md-2 mt-3 border'>
+      <p class="border-bottom">ジャンル検索</p>
       <% @genres.each do |genre| %>
-      <%= link_to genre.name, genre %>
+      <%= genre.name %>
       <% end %>
-
-
     </div>
 
 
     <!--商品一覧-->
-    <div class='col-md-9 mt-3'>
+    <div class='col md-9 mt-3'>
+      <div class="item-list-wrap">
+        <div class="item-list-box">
+          <% @items.each do |item| %>
+            <p><%= link_to public_item_path(item.id) do %>
+              <% if item.image.attached? %>
+                 <%= image_tag item.image, size: "300x200" %>
+              <% else %>
+                <%= image_tag 'no_image', size: "300x200" %>
+              <% end %>
+              <% end %>
+            </p>
+        <div class="item-list-comment"></div>
+        <p><%= item.name %></p>
+        <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
 
+          <% end %>
+        </div>
+        </div>
+      </div>
     </div>
+
+  </div>
+  </div>
+</div>

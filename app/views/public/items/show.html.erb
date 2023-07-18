@@ -1,2 +1,37 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+
+  <div class="sub_container_position ml-5">
+    <h4><span>商品詳細</span></h4>
+  <div class='row'>
+
+    <!--ジャンル,後ほどジャンル検索追加-->
+    <div class='col-md-2 mt-3 border'>
+      <p class="border-bottom">ジャンル検索</p>
+      <% @genres.each do |genre| %>
+      <%= genre.name %>
+      <% end %>
+    </div>
+
+    <div class='col md-3 mt-3 ml-3'>
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x200" %>
+      <% end %>
+    </div>
+
+    <div class='col md-7 mt-3'>
+        <h5><%= @item.name %></h5>
+        <p><%= @item.introduction %></p>
+        <h5>￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）<h5>
+
+
+      <!--ログインユーザーのみ-->
+      <%= form_with model: @cart_items, url: public_cart_items_path do |f| %>
+      <%= f.select :amount, *[1..10], include_blank: "個数選択"%>
+      <%= f.submit "カートに入れる", class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+</div>
