@@ -3,8 +3,10 @@
   <div class="sub_container_position ml-5">
     <h4><span>ショッピングカート</span></h4>
 
+          <% if current_customer.cart_items.present? %>
+          <% @cart_items.each do |cart_item| %>
 
-    <table class="table table-bordered">
+    <table class="table">
       <thead>
         <tr>
           <th>商品名</th>
@@ -16,18 +18,24 @@
       </thead>
       <tbody>
         <tr>
-          <% if current_customer.cart_items.present? %>
-          <% @cart_items.each do |cart_item| %>
-          <tb><% if @item.image.attached? %>
-              <%= image_tag @item.image, size: "100x80" %>
+          <td><% if cart_item.item.image.attached? %>
+              <%= image_tag cart_item.item.image, size: "100x80" %>
               <% else %>
               <%= image_tag 'no_image', size: "100x80" %>
-              <% end %><% cart_item.item.name %></tb>
-          <tb></tb>
-          <% end %>
-          <% end %>
+              <% end %><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+          <td>
+            <%= form_with model: cart_item, url: public_cart_items_path(cart_item), method: :patch do |f| %>
+            <%= f.number_field :quantity, min: 1, max:10, id: "quantity_cart" %>
+            <%= f.submit "変更", class: "btn btn-success" %>
+            <% end %>
+          </td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
+              <% end %>
+          <% end %>
   </div>
 </div>

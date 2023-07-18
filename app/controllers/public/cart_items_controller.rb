@@ -6,20 +6,20 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    #@cart_item = current_customer.cart_item.new(cart_item_params)
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_items = current_customer.cart_items
+    @cart_item = current_customer.cart_items.new(cart_item_params)
+    #@cart_item = CartItem.new(cart_item_params)
+    #@cart_items = current_customer.cart_items
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       cart_item.quantity += params[:cart_item][:quantity].to_i
       cart_item.save
-      redirect_to public_items_path
+      redirect_to public_cart_items_path
 
     elsif @cart_item.save
-      @cart_items = current_customer.cart_items.all
-      render 'index'
+      @cart_items_all = current_customer.cart_items.all
+      render '/public/items'
     else
-      render 'index'
+      render '/public/items'
     end
   end
 
