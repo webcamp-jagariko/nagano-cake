@@ -1,18 +1,21 @@
-<div class="container" style="width: fit-content">
+<div class="container">
 
   <div class="sub_container_position">
     <h4><span>商品詳細</span></h4>
   <div class='row'>
-    
+
     <!--ジャンル-->
-    <div class='col-md-3 mt-3'>
-      
-      
+    <div class='col-md-3 mt-3 border'>
+      <span class="border-bottom">ジャンル検索</span>
+      <% @genres.each do |genre| %>
+      <%= link_to genre.name, genre %>
+      <% end %>
+
+
     </div>
-    
-    
+
+
     <!--商品一覧-->
     <div class='col-md-9 mt-3'>
-      
+
     </div>
-       
