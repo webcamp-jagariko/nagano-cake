@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'public/homes#top'
   scope module: :public do
     get 'customers/mypage' => 'customers#show'
@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     patch 'customers/introduction' => 'customers#update'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdraw' => 'customers#withdraw'
+
     get 'homes/top' => 'homes#top'
     get 'homes/about' => 'homes#about'
   end
-  
   namespace :admin do
     get 'orders/show'
   end
@@ -30,29 +30,25 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
-  namespace :public do
-    get 'shipping_addresses/index'
-    get 'shipping_addresses/edit'
+  scope module: :public do
+    get 'shipping_addresses' => 'shipping_addresses#index'
+    get 'shipping_addresses/id/edit' => 'shipping_addresses#edit', as: 'shipping_addresses_edit'
   end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/complete'
-    get 'orders/show'
+  scope module: :public do
+    get 'orders' => 'orders#index'
+    get 'orders/new' => 'orders#new'
+    get 'orders/complete' => 'orders#complete'
+    get 'orders/show' => 'orders#show'
   end
   namespace :public do
     get 'cart_items/index'
   end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/confirm'
-  end
+
   namespace :public do
     get 'items/index'
     get 'items/show'
   end
-
+  
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {

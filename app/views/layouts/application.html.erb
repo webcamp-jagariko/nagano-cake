@@ -11,7 +11,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-expand-md navbar-light nav-style">
         <div class="windowLayout container-fluid">
           <a class="navbar-brand" href="/homes/top">Navbar</a>
@@ -72,6 +71,7 @@
           </div>
         </div>
       </nav>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
