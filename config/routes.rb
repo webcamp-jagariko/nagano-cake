@@ -17,16 +17,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers, only: %i[index show edit update]
   end
+
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
+    resources :genres, only: [:index, :create, :edit, :update]
   end
+
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
+
   namespace :admin do
     get 'homes/top'
   end
