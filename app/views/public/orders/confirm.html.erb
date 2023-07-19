@@ -18,9 +18,9 @@
               <%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size:"80x50" %>
               <%= cart_item.item.name %>
           </td>
-          <td>¥<%= (cart_item.product.price * 1.1).floor.to_s(:delimited) %>円</td>
-          <td><%= cart_item.item %></td>
-          <td>¥<%= (cart_item.product.price * cart_item.quantity * 1.1).floor.to_s(:delimited) %>円</td>
+          <td>¥<%= (cart_item.items.price * 1.1).floor.to_s(:delimited) %>円</td>
+          <td><%= cart_item.items %></td>
+          <td>¥<%= (cart_item.items.price * cart_item.quantity * 1.1).floor.to_s(:delimited) %>円</td>
         </tr>
       <% end %>
       </tbody>
