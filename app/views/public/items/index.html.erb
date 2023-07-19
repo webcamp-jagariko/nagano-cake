@@ -18,7 +18,7 @@
       <div class="item-list-wrap">
         <div class="item-list-box">
           <% @items.each do |item| %>
-            <p><%= link_to public_item_path(item.id) do %>
+            <p><%= link_to item_show_path(item.id) do %>
               <% if item.image.attached? %>
                  <%= image_tag item.image, size: "300x200" %>
               <% else %>
