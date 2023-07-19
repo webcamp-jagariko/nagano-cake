@@ -30,7 +30,8 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   scope module: :public do
-    resources :shipping_addresses, only:  [:index, :create, :edit, :update, :destroy]
+    get 'shipping_addresses' => 'shipping_addresses#index'
+    get 'shipping_addresses/id/edit' => 'shipping_addresses#edit', as: 'shipping_addresses_edit'
   end
   scope module: :public do
     get 'orders' => 'orders#index'
@@ -38,9 +39,12 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     get 'orders/show' => 'orders#show'
   end
-  namespace :public do
-    get 'cart_items/index'
+
+  scope module: :public do
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+      delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
+
 
   scope module: :public do
     get 'items' => 'items#index'
