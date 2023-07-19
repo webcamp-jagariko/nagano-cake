@@ -42,9 +42,9 @@ Rails.application.routes.draw do
     get 'cart_items/index'
   end
 
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
+  scope module: :public do
+    get 'items' => 'items#index'
+    get 'items/:id' => 'items#show', as: 'item_show'
   end
 
 # 顧客用
