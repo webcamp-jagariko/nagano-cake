@@ -53,7 +53,9 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show', as: 'item_show'
+    get 'search' => "searches#search"
   end
+
 
 # 顧客用
 # URL /customers/sign_in ...
