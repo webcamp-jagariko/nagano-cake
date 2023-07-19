@@ -44,8 +44,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
-  namespace :public do
-    resources :items, only: [:index, :show]
+  scope module: :public do
+    get 'items' => 'items#index'
+    get 'items/:id' => 'items#show', as: 'item_show'
+
   end
 
 # 顧客用
