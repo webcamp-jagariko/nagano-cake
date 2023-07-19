@@ -14,7 +14,7 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.new(shipping_address_params)
     @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
-      redirect_to shipping_addresses_path, notice:  "You have created book successfully."
+      redirect_to shipping_addresses_path, notice:  "配送先を追加しました"
     else
       @shipping_addresses = current_customer.shipping_addresses
       render 'index'
@@ -24,7 +24,7 @@ class Public::ShippingAddressesController < ApplicationController
   def update
     @shipping_address = ShippingAddress.find(params[:id])
     if @shipping_address.update(shipping_address_params)
-      redirect_to shipping_addresses_path, notice: "You have updated book successfully."
+      redirect_to shipping_addresses_path, notice: "配送先を編集しました"
     else
       render :edit
     end
