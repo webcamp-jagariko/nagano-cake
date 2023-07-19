@@ -30,8 +30,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   scope module: :public do
-    get 'shipping_addresses' => 'shipping_addresses#index'
-    get 'shipping_addresses/id/edit' => 'shipping_addresses#edit', as: 'shipping_addresses_edit'
+    resources :shipping_addresses, only:  [:index, :create, :edit, :update, :destroy]
   end
   scope module: :public do
     get 'orders' => 'orders#index'
