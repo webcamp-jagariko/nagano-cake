@@ -40,13 +40,11 @@ Rails.application.routes.draw do
     get 'orders/show' => 'orders#show'
   end
 
-
   scope module: :public do
-    get 'cart_items' => 'cart_items#index'
-    post 'cart_items' => 'cart_items#create'
-    patch 'cart_items/:id' => 'cart_items#update'
-    delete 'cart_items/:id' => 'cart_items#destroy'
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+      delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
+
 
   scope module: :public do
     get 'items' => 'items#index'
