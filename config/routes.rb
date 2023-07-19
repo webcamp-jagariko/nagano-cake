@@ -36,7 +36,9 @@ Rails.application.routes.draw do
     get 'orders' => 'orders#index'
     get 'orders/new' => 'orders#new'
     get 'orders/complete' => 'orders#complete'
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/show' => 'orders#show'
+    resources :orders, only:  [:create]
   end
   namespace :public do
     get 'cart_items/index'
