@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_details, dependent: :destroy
   belongs_to :genre
+  belongs_to :order
 
   validates :name, presence:true
   validates :price, presence:true
