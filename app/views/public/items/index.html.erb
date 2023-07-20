@@ -8,6 +8,7 @@
     <div class='col-md-2 mt-3 border'>
       <p class="border-bottom">ジャンル検索</p>
       <% @genres.each do |genre| %>
+      <%# link_to genre.name, genre_path(@genre.id)%>
       <%= genre.name %>
       <% end %>
     </div>
@@ -17,6 +18,7 @@
     <div class='col md-9 mt-3'>
       <div class="item-list-wrap">
         <div class="item-list-box">
+          <% if params[:word].present? %>
           <% @items.each do |item| %>
             <p><%= link_to item_show_path(item.id) do %>
               <% if item.image.attached? %>
@@ -29,13 +31,26 @@
         <div class="item-list-comment"></div>
         <p><%= item.name %></p>
         <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
-
+          <% end %>
+          <% else %>
+          <% @items.each do |item| %>
+            <p><%= link_to item_show_path(item.id) do %>
+              <% if item.image.attached? %>
+                 <%= image_tag item.image, size: "300x200" %>
+              <% else %>
+                <%= image_tag 'no_image', size: "300x200" %>
+              <% end %>
+              <% end %>
+            </p>
+        <div class="item-list-comment"></div>
+        <p><%= item.name %></p>
+        <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
+          <% end %>
           <% end %>
         </div>
         </div>
       </div>
     </div>
-
   </div>
   </div>
 </div>

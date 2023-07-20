@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
   def index
     @genres = Genre.all
     @items = Item.all
-
+    @word = params[:word]
   end
 
   def show
@@ -11,6 +11,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
   end
+  
 
    private
 
