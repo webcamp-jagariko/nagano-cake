@@ -48,8 +48,8 @@
     <div>
       <div class="row">
         <h4>支払方法</h4>
-        <p class="margin-x"><%= @order.payment_method_i18n %></p>
-        <%= f.hidden_field :payment_method, :value => @order.payment_method_i18n %>
+      <p class="margin-x"><%= @order.payment_method_i18n %></p>
+        <%= f.hidden_field :payment_method, :value => @order.payment_method %>
       </div>
 
       <div class="row">
