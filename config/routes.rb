@@ -40,15 +40,20 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :cart_items, only: [:index, :create, :update, :destroy]
-      delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :create, :update, :destroy]do
+      collection do
+        delete "all_destroy"
+      end
+    end
   end
 
 
   scope module: :public do
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show', as: 'item_show'
+    get 'search' => "searches#search"
   end
+
 
 # 顧客用
 # URL /customers/sign_in ...

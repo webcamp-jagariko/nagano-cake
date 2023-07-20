@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   validates :name, presence:true
-  validates :price, presence:true
+  validates :price, presence:true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
 
   def get_image
@@ -21,5 +21,6 @@ class Item < ApplicationRecord
   def add_tax_price
     (self.price * 1.10).round
   end
+
 
 end
