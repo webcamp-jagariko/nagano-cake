@@ -65,7 +65,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    if @order.save
+      redirect_to shipping_addresses_path, notice:  "配送先を追加しました"
+    else
+      render 'new'
+    end
   end
 
   def show
