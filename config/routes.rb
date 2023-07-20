@@ -51,7 +51,8 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show', as: 'item_show'
-    get 'search' => "searches#search"
+    get 'search' => 'searches#search'
+    get 'genre/search' => 'genre_searches#search'
   end
 
 

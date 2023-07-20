@@ -63,3 +63,6 @@ gem 'devise'
 
 # enum install
 gem 'enum_help'
+
+# kaminari install
+gem 'kaminari','~> 1.2.1'
