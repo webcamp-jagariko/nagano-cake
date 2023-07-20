@@ -46,7 +46,6 @@
   </div>
     <%= form_with model: @order, url: orders_path, local: true do |f| %>
     <div>
-
       <div class="row">
         <h4>支払方法</h4>
       <p class="margin-x"><%= @order.payment_method_i18n %></p>
@@ -63,10 +62,7 @@
           <%= @order.name %></br>
           <%= f.hidden_field :name, :value => @order.name %>
         </p>
-
       </div>
-
-
     </div>
 
     <div class="text-right">
