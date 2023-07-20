@@ -53,22 +53,29 @@ class Public::OrdersController < ApplicationController
       end
     end
 
-    @cart_items = current_customer.cart_items.all
-    # カートに入ってる商品の合計金額
-    #@billing_amount = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-
-    @order.postage = 800
-
-
-
-
   end
 
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    @order.postage = 800
+    @total = 0
+    @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
+        @item = cart_item.item
+        order_detail = OrderDetail.new(order_id: @order.id)
+        order_detail.price_tax = @item.price
+        order_detail.quantity = cart_item.quantity
+        order_detail.item_id = cart_item.item_id
+        @subtotal = (@item.price* 1.10).round * cart_item.quantity
+        @total += @subtotal
+      end
+    @postage = 800
+    @total += 800
+    @order.billing_amount = @total
     if @order.save
-      redirect_to shipping_addresses_path, notice:  "配送先を追加しました"
+      @cart_items.destroy_all
+      redirect_to orders_complete_path
     else
       render 'new'
     end
