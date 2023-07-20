@@ -1,8 +1,7 @@
-<div class="container">
-<h1>注文情報確認</h1>
-  <div class="row">
-    <div class="col-xs-8">
-      <table class="table">
+<div class="container margin-y">
+<h4>注文情報確認</h4>
+  <div class="row margin-y">
+     <table class="table table-bordered col-7">
       <thead>
         <tr>
           <th>商品名</th>
@@ -14,47 +13,38 @@
       <tbody>
       <% @cart_items.each do |cart_item| %>
         <tr>
-          <td>
-              <%= image_tag cart_item.item, :image, fallback: "no_image.jpg", size:"100x80" %>
+          <td class="d-flex align-items-center py-0">
+            <%= image_tag cart_item.item.image, style: "height: 40px" %>
+            <span style="padding: 12px">
               <%= cart_item.item.name %>
+            </span>
           </td>
-          <td><%= (cart_item.items.price * 1.1).floor.to_s(:delimited) %>円</td>
-          <td><%= cart_item.items %></td>
-          <td><%= (cart_item.items.price * cart_item.quantity * 1.1).floor.to_s(:delimited) %>円</td>
+          <td><%= (cart_item.item.price * 1.1).floor.to_s(:delimited) %>円</td>
+          <td><%= cart_item.quantity %></td>
+          <td><%= @subtotal.to_s(:delimited) %></td>
         </tr>
       <% end %>
       </tbody>
     </table>
-    </div>
-    <%= form_with model: @order, url: orders_path, local: true do |f| %>
-    <div class="col-xs-3">
-        <table class="table">
-          <tbody>
-            <tr>
-              <td class="confirm-td">送料</td>
-              <td>
-                  <%= @order.postage.to_s(:delimited) %>円
-                  <%= f.hidden_field :postage, :value => @order.postage %>
-              </td>
-            </tr>
-            <tr>
-              <td class="confirm-td">商品合計</td>
-              <td>
-                <%= @billing_amount.to_s(:delimited) %>円
-              </td>
-            </tr>
-            <tr>
-              <td class="confirm-td">請求金額</td>
-              <td>
-                ¥<%= (@billing_amount + 800).to_s(:delimited) %>円
-                <%= f.hidden_field :total_fee, :value => (@billing_amount + 800) %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-  <div class="row">
+
+    <table class="table table-bordered col-4 offset-1">
+      <tbody>
+        <tr>
+          <td>送料</td>
+          <td><%= @postage.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @subtotal.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <td>請求金額</td>
+          <td><%= @total.to_s(:delimited) %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
     <h3>支払方法</h3>
       <h4><%= @order.payment %></h4>
       <%= f.hidden_field :payment, :value => @order.payment %></br>
@@ -74,4 +64,5 @@
       <%= f.submit "購入を確定する", class: "btn btn-success btn-lg text-center" %>
     </div>
     <% end %>
+
 </div>

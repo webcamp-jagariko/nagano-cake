@@ -37,8 +37,8 @@ Rails.application.routes.draw do
     get 'orders/new' => 'orders#new'
     get 'orders/complete' => 'orders#complete'
     post 'orders/confirm' => 'orders#confirm'
-    get 'orders/show' => 'orders#show'
-    resources :orders, only:  [:create]
+    # get 'orders/show' => 'orders#show'
+    resources :orders, only:  [:create, :show]
   end
   scope module: :public do
     resources :cart_items, only: [:index, :create, :update, :destroy]do

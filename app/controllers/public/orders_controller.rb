@@ -19,6 +19,14 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items
     @total = 0
+    @cart_items.each do |cart_item|
+      @item = cart_item.item
+      @subtotal = (@item.price* 1.10).round * cart_item.quantity
+      @total += @subtotal
+    end
+    @postage = 800
+    @total += 800
+
 
 
     if params[:order][:address_number] == "0"
@@ -49,8 +57,12 @@ class Public::OrdersController < ApplicationController
 
     @cart_items = current_customer.cart_items.all
     # カートに入ってる商品の合計金額
-    @billing_amount = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    #@billing_amount = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+
     @order.postage = 800
+
+
+
 
   end
 
