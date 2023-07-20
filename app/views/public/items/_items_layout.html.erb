@@ -1,0 +1,25 @@
+<div class="margin-y">
+  <div class="container margin-y">
+    <div class="row">
+      <% items.each do |item|%>
+      <div class="col-3 p-0">
+        <div style="margin: 5px">
+          <%= link_to item_show_path(item.id), class: "text-decoration-none text-dark" do %>
+          <div class="card bg-transparent border-0">
+            <% if item.image.attached? %>
+              <%= image_tag item.image, class: "card-img-top rounded-0 card-image" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', class: "card-img-top rounded-0" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
