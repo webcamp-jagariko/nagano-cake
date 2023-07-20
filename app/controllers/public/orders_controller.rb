@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
       render 'confirm'
     elsif params[:order][:address_number] == "1"
       @shipping_address = ShippingAddress.find(params[:order][:address_id])
-      @order.post_code = @shipping_address.postcode
+      @order.post_code = @shipping_address.post_code
       @order.address = @shipping_address.address
       @order.name = @shipping_address.name
       render 'confirm'
