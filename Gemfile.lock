@@ -129,7 +129,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     net-imap (0.3.6)
       date
       net-protocol
@@ -219,9 +219,6 @@ GEM
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -268,7 +265,6 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   sqlite3 (~> 1.4)
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
