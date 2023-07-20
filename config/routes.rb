@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     get 'homes/about' => 'homes#about'
   end
   namespace :admin do
-    get 'orders/show'
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
+
   namespace :admin do
     resources :customers, only: %i[index show edit update]
   end
