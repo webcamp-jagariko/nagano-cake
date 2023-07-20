@@ -5,7 +5,7 @@
       <% genres.each do |genre|%>
         <li class="list-group-item border-0">
           <!--後にlink_toへ変更-->
-          <%= link_to genre.name, genre_search_path(genre_id: genre.id) %>
+          <%= link_to genre.name, genre_search_path %>
           <%= genre.name %>
         </li>
       <% end %>
