@@ -1,0 +1,13 @@
+<section class="col-md-3" style="margin-bottom: 2rem">
+  <div class="card border-dark col rounded-0">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><h5 class="text-center">ジャンル検索</h5></li>
+      <% genres.each do |genre|%>
+        <li class="list-group-item border-0">
+          <!--後にlink_toへ変更-->
+          <%= genre.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
