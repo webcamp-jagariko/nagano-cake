@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = current_customer.orders.all
   end
 
   def complete
@@ -82,7 +82,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
+    @order = Order.find(params[:id])
+    @order_detail = @order.order_details.all
   end
 
 private
