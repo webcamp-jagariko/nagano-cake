@@ -4,9 +4,7 @@
       <li class="list-group-item"><h5 class="text-center">ジャンル検索</h5></li>
       <% genres.each do |genre|%>
         <li class="list-group-item border-0">
-          <!--後にlink_toへ変更-->
           <%= link_to genre.name, genre_search_path(genre.id) %>
-          <%= genre.name %>
         </li>
       <% end %>
     </ul>
