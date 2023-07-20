@@ -47,7 +47,10 @@ class Public::OrdersController < ApplicationController
       end
     end
 
-
+    @cart_items = current_customer.cart_items.all
+    # カートに入ってる商品の合計金額
+    @billing_amount = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @order.postage = 800
 
   end
 
