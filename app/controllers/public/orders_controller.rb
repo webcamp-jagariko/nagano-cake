@@ -27,8 +27,6 @@ class Public::OrdersController < ApplicationController
     @postage = 800
     @total += 800
 
-
-
     if params[:order][:address_number] == "0"
       @order.post_code = current_customer.post_code
       @order.address = current_customer.address
