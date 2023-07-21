@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def show
-    @order = Order.find(9)
+    @order = Order.find(params[:id])
     @customer = @order.customer
     @customer_name = @customer.last_name + @customer.first_name
     @order_address = "〒#{@order.post_code} #{@order.address} #{@customer_name}"

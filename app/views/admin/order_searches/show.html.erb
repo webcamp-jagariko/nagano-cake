@@ -14,7 +14,7 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= link_to order.created_at.strftime('%Y年%m月%d日 %H:%M:%S'), admin_orders_show_path %></td>
+          <td><%= link_to order.created_at.strftime('%Y年%m月%d日 %H:%M:%S'), admin_order_path(order.id) %></td>
           <td><%# order.quantity %></td>
           <td><%# status %></td>
         </tr>
