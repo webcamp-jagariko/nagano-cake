@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
     @customer = @order.customer
     @customer_name = @customer.last_name + @customer.first_name
     @order_address = "〒#{@order.post_code} #{@order.address} #{@customer_name}"
-    @order_details = OrderDetail.where(order_id: @order.id)
+    @order_details = @order.order_details
 
     @subtotal = 0
     @order_details.each do |order_detail|

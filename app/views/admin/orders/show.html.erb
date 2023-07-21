@@ -57,7 +57,7 @@
             <td><%= order_detail.item.price %></td>
             <td class="text-center"><%= order_detail.quantity %></td>
             <td><%= order_detail.item.price * order_detail.quantity %></td>
-            <%= form_with model: @order, url: admin_order_order_detail_path(order_detail.id, @order.id), method: :patch do |f| %>
+            <%= form_with model: @order, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
             <td>
               <div class="d-flex justify-content-center">
                 <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]}, {selected: order_detail.production_status }, class: "form-control w-50" %>
