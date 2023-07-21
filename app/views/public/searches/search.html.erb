@@ -1,14 +1,12 @@
-<% @items.each do |item| %>
-            <p><%= link_to item_show_path(item.id) do %>
-              <% if item.image.attached? %>
-                 <%= image_tag item.image, size: "300x200" %>
-              <% else %>
-                <%= image_tag 'no_image', size: "300x200" %>
-              <% end %>
-              <% end %>
-            </p>
-        <div class="item-list-comment"></div>
-        <p><%= item.name %></p>
-        <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
-          <% end %>
-        </div>
+<div class="margin-y container">
+  <div class="row">
+
+    <%= render 'layouts/search_genre', genres: @genres %>
+
+    <main class="col-md-9">
+      <h2>"<%= @word %>"を含む商品が<%= @items.count %>件あります</h2>
+      <%= render 'public/items/items_layout', items: @items %>
+      <%= paginate @items %>
+    </main>
+  </div>
+</div>

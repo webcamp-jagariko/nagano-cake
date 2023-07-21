@@ -85,7 +85,20 @@ class Public::OrdersController < ApplicationController
     else
       render 'new'
     end
+  @postage = 800
+  @total += 800
+  @order.billing_amount = @total
+  if @order.save
+    item_details.each do |order_detail|
+      order_detail.order_id = @order.id
+      order_detail.save
+    end
+    @cart_items.destroy_all
+    redirect_to orders_complete_path
+  else
+    render 'new'
   end
+end
 
   def show
 
