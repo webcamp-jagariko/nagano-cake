@@ -12,17 +12,10 @@ class Order < ApplicationRecord
   enum status: {
      wait_payment: 0,
      payment_check: 1,
-     producing:2,
-     prepare_shipping:3,
-     shipped:4
-  }
-
-  enum production_status: {
-     cannot_start:0,
-     wait_product:1,
-     now_producing:2,
-     finish_producing:3,
-  }
+     producing: 2,
+     prepare_shipping: 3,
+     shipped: 4
+  }, _prefix: true
 
   def sum_of_price
     item.price_tax * quantity

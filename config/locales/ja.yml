@@ -7,13 +7,14 @@ ja:
       status:
         wait_payment: "入金待ち"
         payment_check: "入金確認"
-        now_producing: "製作中"
+        producing: "製作中"
         prepare_shipping: "発送準備中"
         shipped: "発送済み"
+    order_detail:
       production_status:
         cannot_start: "着手不可"
         wait_product: "製作待ち"
-        now_producing: "製作中"
+        producing: "製作中"
         finish_producing: "製作完了"
   activerecord:
     errors:

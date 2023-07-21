@@ -28,13 +28,8 @@
           <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
           <td>
             <div class="d-flex">
-              <%= f.select :status, [
-              ['入金待ち', 0],
-              ['入金確認', 1],
-              ['製作中', 2],
-              ['発送準備中', 3],
-              ['発送済み', 4]
-              ], {}, class: "form-control w-50" %>
+              <!--Orderモデルにあるenumハッシュを入手し、keyのみ取ってくる-->
+              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}, {}, class: "form-control w-50" %>
               <%= f.submit "更新", class: "btn btn-success margin-x" %>
             </div>
           </td>
@@ -60,17 +55,12 @@
           <tr>
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.item.price %></td>
-            <td><%= order_detail.quantity %></td>
+            <td class="text-center"><%= order_detail.quantity %></td>
             <td><%= order_detail.item.price * order_detail.quantity %></td>
-            <%= form_with model: @order, url: admin_order_detail_path, method: :patch do |f| %>
+            <%= form_with model: @order, url: admin_order_order_detail_path(order_detail.id, @order.id), method: :patch do |f| %>
             <td>
               <div class="d-flex justify-content-center">
-                <%= f.select :production_status, [
-                ['着手不可', 0],
-                ['製作待ち', 1],
-                ['製作中', 2],
-                ['製作完了', 3],
-                ], {}, class: "form-control w-50" %>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]}, {selected: order_detail.production_status }, class: "form-control w-50" %>
                 <%= f.submit "更新", class: "btn btn-success margin-x" %>
               </div>
             </td>
@@ -84,15 +74,15 @@
           <tbody>
             <tr>
               <th>商品合計</th>
-              <td class="text-right"><%= @subtotal %>円</td>
+              <td class="text-right"><%= @subtotal.to_s(:delimited) %>円</td>
             </tr>
             <tr>
               <th>送料</th>
-              <td class="text-right"><%= @postage %>円</td>
+              <td class="text-right"><%= @postage.to_s(:delimited) %>円</td>
             </tr>
             <tr>
               <th>請求金額合計</th>
-              <th class="text-right"><%= @total %>円</th>
+              <th class="text-right"><%= @total.to_s(:delimited) %>円</th>
             </tr>
           </tbody>
         </table>
