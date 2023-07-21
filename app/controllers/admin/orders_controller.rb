@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def show
-    @order = Order.find(9)
+    @order = Order.find(params[:id])
     @customer = @order.customer
     @customer_name = @customer.last_name + @customer.first_name
     @order_address = "〒#{@order.post_code} #{@order.address} #{@customer_name}"
@@ -21,11 +21,11 @@ class Admin::OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  private
+private
 
-  def order_params
-    status = params.require(:order).permit(:status)
-  end
+def order_params
+  status = params.require(:order).permit(:status)
+end
 
 end
 
