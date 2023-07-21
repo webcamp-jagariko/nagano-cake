@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   root to: 'public/homes#top'
   scope module: :public do
     get 'customers/mypage' => 'customers#show'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :genre_searches, only: [:show]
+    resources :order_searches, only: [:show]
   end
 
   namespace :admin do

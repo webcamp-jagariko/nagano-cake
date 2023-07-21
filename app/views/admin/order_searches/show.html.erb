@@ -1,13 +1,12 @@
 <div class="container w-75">
   <div class="margin-y">
     <div class="d-flex align-items-center justify-content-between">
-      <h4>注文履歴一覧</h4>
+      <h4><%= @order.customer.last_name %> <%= @order.customer.first_name %>様 注文履歴一覧</h4>
     </div>
     <table class='table margin-y'>
       <thead>
         <tr>
           <th>購入日時</th>
-          <th>購入者</th>
           <th>注文個数</th>
           <th>注文ステータス</th>
         </tr>
@@ -16,9 +15,6 @@
         <% @orders.each do |order| %>
         <tr>
           <td><%= link_to order.created_at.strftime('%Y年%m月%d日 %H:%M:%S'), admin_orders_show_path %></td>
-          <td><%= link_to admin_order_search_path(order.customer.id) do %>
-          <%= order.customer.last_name %> <%= order.customer.first_name %>
-          <% end %></td>
           <td><%# order.quantity %></td>
           <td><%# status %></td>
         </tr>
