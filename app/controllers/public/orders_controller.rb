@@ -55,35 +55,41 @@ class Public::OrdersController < ApplicationController
 
   end
 
-  def create
-    @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
-    @order.postage = 800
-    @total = 0
-    @cart_items = current_customer.cart_items
-      @cart_items.each do |cart_item|
-        @item = cart_item.item
-        order_detail = OrderDetail.new(order_id: @order.id)
-        order_detail.price_tax = @item.price
-        order_detail.quantity = cart_item.quantity
-        order_detail.item_id = cart_item.item_id
-        @subtotal = (@item.price* 1.10).round * cart_item.quantity
-        @total += @subtotal
-      end
-    @postage = 800
-    @total += 800
-    @order.billing_amount = @total
-    if @order.save
-      @cart_items.destroy_all
-      redirect_to orders_complete_path
-    else
-      render 'new'
+def create
+  @order = Order.new(order_params)
+  @order.customer_id = current_customer.id
+  @order.postage = 800
+  @total = 0
+  @cart_items = current_customer.cart_items
+  item_details = []
+    @cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      @item = cart_item.item
+      order_detail.price_tax = @item.price
+      order_detail.quantity = cart_item.quantity
+      order_detail.item_id = cart_item.item_id
+      item_details << order_detail
+      @subtotal = (@item.price* 1.10).round * cart_item.quantity
+      @total += @subtotal
     end
+  @postage = 800
+  @total += 800
+  @order.billing_amount = @total
+  if @order.save
+    item_details.each do |order_detail|
+      order_detail.order_id = @order.id
+      order_detail.save
+    end
+    @cart_items.destroy_all
+    redirect_to orders_complete_path
+  else
+    render 'new'
   end
+end
 
   def show
     @order = Order.find(params[:id])
-    @order_detail = @order.order_details.all
+    @order_details = @order.order_details.all
   end
 
 private
