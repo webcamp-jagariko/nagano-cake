@@ -4,7 +4,7 @@
     <%= render 'layouts/search_genre', genres: @genres %>
 
     <main class="col-md-9">
-      <h2>商品詳細</h2>
+      <h2><%= @genre.name %>一覧（全<%= @items.count %>件）</h2>
       <%= render 'public/items/items_layout', items: @items %>
       <%= paginate @items %>
     </main>

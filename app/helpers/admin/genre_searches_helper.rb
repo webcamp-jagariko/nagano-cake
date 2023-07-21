@@ -1,0 +1,2 @@
+module Admin::GenreSearchesHelper
+end
