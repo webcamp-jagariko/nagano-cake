@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
       @order.name = @shipping_address.name
       render 'confirm'
     elsif params[:order][:address_number] == "2"
-      @shipping_address = current_customer.shipping_address.new
+      @shipping_address = current_customer.shipping_addresses.new
       @shipping_address.address = params[:order][:address]
       @shipping_address.name = params[:order][:name]
       @shipping_address.post_code = params[:order][:post_code]
