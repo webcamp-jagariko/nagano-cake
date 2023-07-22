@@ -1,9 +1,9 @@
 <div class="container" style="width: fit-content">
 
   <div class="sub_container_position">
-    <h4><span>ログイン</span></h4>
+    <h4>ログイン</h4>
     <br>
-    <h5><span>会員の方はこちらからログイン</span></h5>
+    <h5>会員の方はこちらからログイン</h5>
       <%= form_with model: @customer, url: customer_session_path do |f| %>
       <div class="margin-y">
         <div class="field">
@@ -23,7 +23,7 @@
   </div>
 
   <div class="sub_container_position">
-    <h5><span>会員登録がお済でない方</span></h5>
+    <h5>会員登録がお済でない方</h5>
     <div>
       <span><%= render "public/shared/links" %>から新規登録を行ってください。</span>
     </div>

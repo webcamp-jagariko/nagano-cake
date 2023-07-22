@@ -3,7 +3,7 @@
 
   <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
   <div class="margin-y">
-    <h4><%= f.label :payment_method, "支払方法" %></h4>
+    <h5>支払方法</h5>
     <div class="margin-x">
       <div>
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
@@ -18,47 +18,34 @@
   </div>
 
   <div class="margin-y">
-    <h4><%= f.label :address_number, "お届け先" %></h4>
+    <h5>会員の方はこちらからログイン</h5>
     <div class="margin-x">
       <div style="margin-bottom: 10px">
         <%= f.radio_button :address_number, 0, checked: "checked" %>
-        <%= f.label :address_number, "ご自身の住所" %>
+        <span>ご自身の住所</span>
         <div class="margin-x">
           <%= "〒" %><%= @customer.post_code %>
           <%= @customer.address %>
           <%= @customer.last_name %><%= @customer.first_name %>
         </div>
       </div>
-      <div style="margin-bottom: 10px">
+      <div>
         <%= f.radio_button :address_number, 1 %>
-        <%= f.label :address_number, "登録済住所から選択" %><br>
-        <div class="margin-x">
+        <span>登録済住所から選択</span><br>
+        <div class="margin-x padding-sm-y">
           <%= f.select :address_id ,options_from_collection_for_select(current_customer.shipping_addresses.all, :id, :address_display, params[:customer_id]) %>
         </div>
       </div>
 
       <div>
         <%= f.radio_button :address_number, 2 %>
-        <%= f.label :address_number, "新しいお届け先" %>
-        <div>
-          <div class="form-group col-xs-9">
-            <%= f.label :"郵便番号(ハイフンなし)", placeholder: "example@example.com", class: "col-sm-3 from-control" %>
-            <%= f.text_field :post_code, placeholder: "0000000", class: "col-sm-3" %>
-          </div>
-
-          <div class="form-group col-xs-9">
-            <%= f.label :"住所", class: "col-sm-3 from-control" %>
-            <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-sm-5" %>
-          </div>
-
-          <div class="form-group col-xs-9">
-            <%= f.label :"宛名", class: "col-sm-3 from-control" %>
-            <%= f.text_field :name, placeholder: "令和道子", class: "col-sm-3" %>
-          </div>
+        <span>新しいお届け先</span><br>
+        <div class="margin-x">
+          <%= render 'public/shipping_addresses/ship_form', f: f %>
         </div>
       </div>
     </div>
-    <%= f.submit '確認画面に進む' ,class: "btn btn-success" %>
+    <%= f.submit '確認画面に進む' , class: "btn btn-success" %>
   </div>
   <% end %>
 
