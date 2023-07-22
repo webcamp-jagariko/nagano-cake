@@ -20,7 +20,7 @@
           <%= order.customer.last_name %> <%= order.customer.first_name %>
           <% end %></td>
           <td><%# order.quantity %></td>
-          <td><%# status %></td>
+          <td><%= order.status %></td>
         </tr>
         <% end %>
         <%= paginate @orders %>
