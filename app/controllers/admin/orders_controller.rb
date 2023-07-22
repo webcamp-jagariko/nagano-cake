@@ -21,10 +21,10 @@ class Admin::OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  private
+private
 
   def order_params
-    status = params.require(:order).permit(:status)
+    params.require(:order).permit(:status)
   end
 
 end

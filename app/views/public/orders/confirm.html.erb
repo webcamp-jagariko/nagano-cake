@@ -21,7 +21,7 @@
           </td>
           <td><%= (cart_item.item.price * 1.1).floor.to_s(:delimited) %>円</td>
           <td><%= cart_item.quantity %></td>
-          <td><%= @subtotal.to_s(:delimited) %></td>
+          <td><%= (cart_item.item.price * 1.1 * cart_item.quantity ).floor.to_s(:delimited) %>円</td>
         </tr>
       <% end %>
       </tbody>

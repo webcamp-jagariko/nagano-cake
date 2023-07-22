@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = current_customer.orders.all
   end
 
   def complete
@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
       @order.name = @shipping_address.name
       render 'confirm'
     elsif params[:order][:address_number] == "2"
-      @shipping_address = current_customer.shipping_address.new
+      @shipping_address = current_customer.shipping_addresses.new
       @shipping_address.address = params[:order][:address]
       @shipping_address.name = params[:order][:name]
       @shipping_address.post_code = params[:order][:post_code]
@@ -55,7 +55,7 @@ class Public::OrdersController < ApplicationController
 
   end
 
-  def create
+def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.postage = 800
@@ -101,7 +101,8 @@ class Public::OrdersController < ApplicationController
 end
 
   def show
-
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details.all
   end
 
 private
