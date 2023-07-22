@@ -1,57 +1,67 @@
 <div class="container">
 
-    <h1><%= (@customer.last_name + @customer.first_name) %>さんの会員編集画面</h1>
+    <h4 class="margin-y"><%= (@customer.last_name + @customer.first_name) %>さんの会員編集画面</h4>
     <%= form_with model: @customer, url: admin_customer_path do |f| %>
+    <%= render "layouts/form_errors", model: @customer %>
 
-      <div class="col-xs-10">
-        <div class="form-group col-xs-9">
-          <%= f.label :"会員ID", class: "col-sm-4 from-control" %>
-          <%= f.label :"#{@customer.id}" %>
-        </div>
+    <div class="field margin-y">
 
-        <div class="form-group col-xs-9">
-          <%= f.label :"氏名", class: "col-sm-4 from-control" %>
-          <%= f.text_field :last_name, class: "col-sm-3" %>
-          <%= f.text_field :first_name, class: "col-sm-3" %>
-        </div>
+      <div class="d-flex padding-sm-y">
+        <p class="label-width label-name">会員ID</p>
+        <p><%= @customer.id %></p>
 
-        <div class="form-group col-xs-9">
-          <%= f.label :"フリガナ", class: "col-sm-4 from-control" %>
-          <%= f.text_field :last_name_kana, class: "col-sm-3" %>
-          <%= f.text_field :first_name_kana, class: "col-sm-3" %>
-        </div>
-
-        <div class="form-group col-xs-9">
-          <%= f.label :"郵便番号", class: "col-sm-4 from-control" %>
-          <%= f.text_field :post_code, class: "col-sm-3" %>
-        </div>
-
-        <div class="form-group col-xs-9">
-          <%= f.label :"住所", class: "col-sm-4 from-control" %>
-          <%= f.text_field :address, class: "col-sm-6" %>
-        </div>
-
-        <div class="form-group col-xs-9">
-          <%= f.label :"電話番号", class: "col-sm-4 from-control" %>
-          <%= f.text_field :phone_number, class: "col-sm-3" %>
-        </div>
-
-        <div class="form-group col-xs-9">
-          <%= f.label :"メールアドレス", class: "col-sm-4 from-control" %>
-          <%= f.text_field :email, class: "col-sm-5" %>
-        </div>
-
-        <div class="form-group col-xs-9">
-          <%= f.label :"会員ステータス", class: "col-sm-4 from-control" %>
-            <%= f.radio_button :is_deleted, false %>
-          　<%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
-          　<%= f.radio_button :is_deleted, true %>
-          　<%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
-        </div>
       </div>
-        <div class="actions  col-xs-9 col-xs-offset-4">
-          <%= f.submit '変更を保存する' ,class: "btn btn-success" %>
-        </div>
+
+      <div class="d-flex padding-sm-y">
+        <p class="label-width label-name">名前</p>
+          <%= f.label :last_name, "（姓）", class: "label-position", style: "margin-left: -48px" %>
+          <%= f.text_field :last_name, placeholder: "令和", class: "field-width" %>
+
+          <%= f.label :first_name, "（名）", class: "label-position", style: "margin-left: 16px" %>
+          <%= f.text_field :first_name, placeholder: "道子", class: "field-width"%>
+      </div>
+
+      <div class="d-flex padding-sm-y">
+        <p class="label-width label-name">フリガナ</p>
+          <%= f.label :last_name_kana, "（セイ）", class: "label-position", style: "margin-left: -64px" %>
+          <%= f.text_field :last_name_kana, placeholder: "令和", class: "field-width" %>
+
+          <%= f.label :first_name_kana, "（メイ）", class: "label-position"%>
+          <%= f.text_field :first_name_kana, placeholder: "道子", class: "field-width"%>
+      </div>
+
+      <div class="d-flex padding-sm-y">
+        <%= f.label :post_code, "郵便番号（ハイフンなし）", class: "label-width"  %>
+        <%= f.text_field :post_code, placeholder: "0000000", class: "field-width" %>
+      </div>
+
+      <div class="d-flex padding-sm-y" style="width: 100%">
+        <%= f.label :address, "住所", class: "label-width"  %>
+        <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", style: "width:472px" %>
+      </div>
+
+      <div class="d-flex padding-sm-y">
+        <%= f.label :phone_number, "電話番号", class: "label-width"  %>
+        <%= f.text_field :phone_number, placeholder: "00000000000", class: "field-width" %>
+      </div>
+
+      <div class="d-flex padding-sm-y">
+        <%= f.label :email, "メールアドレス", class: "label-width" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "example@example.com", class: "field-width" %>
+      </div>
+
+      <div class="d-flex padding-sm-y">
+        <p class="label-width label-name">会員ステータス</p>
+        <%= f.radio_button :is_deleted, false %>
+      　<%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+      　<%= f.radio_button :is_deleted, true %>
+      　<%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+      </div>
+
+    </div>
+    <div>
+      <%= f.submit '変更を保存する' ,class: "btn btn-success" %>
+    </div>
     <% end %>
     </div>
   </div>
