@@ -66,3 +66,6 @@ gem 'enum_help'
 
 # kaminari install
 gem 'kaminari','~> 1.2.1'
+
+#Image Processing
+gem 'image_processing', '~>1.2'
