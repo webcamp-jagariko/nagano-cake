@@ -29,7 +29,7 @@
           <td>
             <div class="d-flex">
               <!--Orderモデルにあるenumハッシュを入手し、keyのみ取ってくる-->
-              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}")]}, {}, class: "form-control w-50" %>
+              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}, :selected => @order.status, class: "form-control w-50" %>
               <%= f.submit "更新", class: "btn btn-success margin-x" %>
             </div>
           </td>
@@ -40,7 +40,8 @@
 
   <div class="container">
     <div class="row margin-y">
-      <table class="table table-bordered col-md-8">
+      <div class="col-md-8">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <td>商品名</td>
@@ -60,7 +61,7 @@
             <%= form_with model: @order, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
             <td>
               <div class="d-flex justify-content-center">
-                <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}")]}, {selected: order_detail.production_status }, class: "form-control w-50" %>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]}, :selected => order_detail.production_status, class: "form-control w-50" %>
                 <%= f.submit "更新", class: "btn btn-success margin-x" %>
               </div>
             </td>
@@ -69,6 +70,7 @@
           <% end %>
         </tbody>
       </table>
+      </div>
 
         <table class="table table-borderless table-responsive col-md-3 offset-md-1 d-flex align-items-end">
           <tbody>

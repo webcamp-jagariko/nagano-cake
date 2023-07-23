@@ -16,6 +16,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @customer = current_customer
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items
     @total = 0
@@ -81,7 +82,7 @@ def create
         order_detail.save
       end
       @cart_items.destroy_all
-      redirect_to orders_complete_path
+      redirect_to orders_complete_path and return
     else
       render 'new'
     end
@@ -94,7 +95,7 @@ def create
       order_detail.save
     end
     @cart_items.destroy_all
-    redirect_to orders_complete_path
+    redirect_to orders_complete_path and return
   else
     render 'new'
   end

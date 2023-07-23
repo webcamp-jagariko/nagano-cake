@@ -30,11 +30,17 @@
         </div>
       </div>
       <div>
-        <%= f.radio_button :address_number, 1 %>
+        <% if @customer.shipping_addresses.present? %>
+          <%= f.radio_button :address_number, 1 %>
+        <% else %>
+          <%= f.radio_button :address_number, 1, disabled: true%>
+        <% end %>
         <span>登録済住所から選択</span><br>
+        <% if @customer.shipping_addresses.present? %>
         <div class="margin-x padding-sm-y">
           <%= f.select :address_id ,options_from_collection_for_select(current_customer.shipping_addresses.all, :id, :address_display, params[:customer_id]) %>
         </div>
+        <% end %>
       </div>
 
       <div>
