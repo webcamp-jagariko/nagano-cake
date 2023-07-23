@@ -1,5 +1,10 @@
 <div class="container margin-y">
-<h4>注文情報確認</h4>
+<div class="d-flex justify-content-between">
+  <h4>注文情報確認</h4>
+  <div class="text-right">
+    <%= link_to "情報入力へ戻る", orders_new_path, class: "btn btn-info" %>
+  </div>
+</div>
   <div class="row margin-y">
      <table class="table table-bordered col-7">
       <thead>
@@ -65,9 +70,6 @@
       </div>
     </div>
 
-    <div class="text-right">
-      <%= link_to "情報入力へ戻る", orders_new_path %>
-    </div>
     <div class="text-center">
       <%= f.submit "購入を確定する", class: "btn btn-success btn-lg text-center" %>
     </div>

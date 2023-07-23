@@ -10,11 +10,7 @@
       <h2>商品詳細</h2>
       <div class="row margin-y">
         <div class='col-md-5 text-center' style="min-width: 320px">
-          <% if @item.image.attached? %>
-            <%= image_tag @item.image, class: "w-100 rounded-0 card-image-show text-center", style: "max-width: 350px;" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg', class: "w-100 rounded-0" %>
-          <% end %>
+            <%= image_tag @item.get_image(330, 230), class: "w-100 rounded-0 card-image-show text-center" %>
         </div>
 
         <div class='col-md-5 d-flex align-items-center justify-content-center'>

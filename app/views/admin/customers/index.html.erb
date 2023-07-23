@@ -1,7 +1,7 @@
 <div class="container w-75">
   <div class="margin-y">
     <h4>会員一覧</h4>
-    <table class='table margin-y'>
+    <table class='table table-hover margin-y'>
       <thead>
         <tr>
           <th>会員ID</th>
@@ -18,9 +18,9 @@
             <td><%= customer.email %></td>
             <td>
               <% if customer.is_deleted %>
-                退会済み
+                <span class="text-muted">退会済み</span>
               <% else %>
-                有効
+                <span class="text-success"><strong>有効</strong></span>
               <% end %>
             </td>
           </tr>
