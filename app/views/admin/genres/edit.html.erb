@@ -1,10 +1,16 @@
 <div class='container margin-y fit-content'>
 <h4>ジャンル編集</h4>
+<div class="field">
   <div class="margin-y">
     <%= form_with model: @genre, url: admin_genre_path do |f| %>
-      <%= f.label :name, "ジャンル名" %>
-      <%= f.text_field :name, class: "margin-x" %>
-      <%= f.submit '変更を保存', class: "btn btn-success" %>
+    <%= render 'layouts/form_errors', model: @genre %>
+      <div class="d-flex padding-sm-y align-items-center">
+        <%= f.label :name, "ジャンル名" %>
+        <%= f.text_field :name, class: "margin-x" %>
+        <%= f.submit '変更を保存', class: "btn btn-success" %>
+      </div>
     <% end %>
   </div>
+</div>
+
 </div>

@@ -4,6 +4,9 @@
     <%= render "layouts/form_errors", model: @shipping_address %>
       <div class="field margin-y">
         <%= render 'public/shipping_addresses/ship_form', f: f %>
+        <div style="text-align: end">
+          <%= f.submit '新規登録' ,class: "btn btn-success padding-x" %>
+         </div>
       </div>
     <% end %>
 

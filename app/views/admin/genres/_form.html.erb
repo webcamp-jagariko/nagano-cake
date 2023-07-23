@@ -1,5 +1,6 @@
 <%= f.label :ジャンル名 %>
 <%= form_with model: Genre.new do |f| %>
+
   <%= f.text_field :name %>
 
   <% if obj.new_record? %>
