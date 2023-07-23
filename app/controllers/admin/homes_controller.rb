@@ -5,9 +5,4 @@ class Admin::HomesController < ApplicationController
     @orders = Order.page(params[:page])
   end
 
-  private
-
-  #def total_orders(orders)
-    #orders.count
-  #end
 end
