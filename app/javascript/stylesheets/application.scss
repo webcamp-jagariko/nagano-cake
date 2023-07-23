@@ -217,7 +217,7 @@
 }
 
 .hover-color:hover {
-  background-color:#f3f3f3;
+  background-color: rgba(0,0,0,5%);
 }
 
 // Bootstrap CSS override
@@ -304,4 +304,8 @@ nav > div > p {
 .list-group-flush > .list-group-item {
   background: #736050;
   color: white;
+}
+
+body {
+  background-color: #fff2e1;
 }
