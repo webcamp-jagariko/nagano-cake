@@ -19,6 +19,11 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: params[:id])
     @order.update(order_params)
+    if @order.status == "payment_check"
+      @order_details.each do |order_detail|
+        order_detail.update(production_status: 1)
+      end
+    end
     redirect_back(fallback_location: root_path)
   end
 
