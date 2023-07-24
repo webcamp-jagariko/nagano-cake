@@ -2,6 +2,7 @@
   <div class="d-flex justify-content-between margin-y">
     <h4><span>ショッピングカート</span></h4>
     <% total = 0 %>
+
     <%= link_to "カートを空にする", all_destroy_cart_items_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
   </div>
   <% if current_customer.cart_items.present? %>
@@ -37,9 +38,9 @@
       </tr>
       <% total += subtotal %>
       <% end %>
-      <% else %>
-        <h5>カートは空です</h5>
-      <% end %>
+    <% else %>
+      <h5>カートは空です</h5>
+    <% end %>
     </tbody>
   </table>
 

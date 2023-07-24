@@ -6,13 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/a1dd104b6c.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag  'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= flash[:notice] %>
+    <% if flash[:notice].present? %>
+    <div class="text-center margin-y">
+      <%= flash[:notice]%>
+    </div>
+    <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
