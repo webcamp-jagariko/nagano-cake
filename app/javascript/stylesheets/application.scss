@@ -226,7 +226,8 @@ footer {
   left: 0;
   width: 100%;
   height: 80px;
-  background: #44aa33;
+  background: #142601;
+  color: white;
 }
 
 .outer{
@@ -234,5 +235,8 @@ footer {
 }
 .inner{
   display: inline-block;
-  text-align: left;
+}
+
+.social{
+  margin-right: 10px;
 }
