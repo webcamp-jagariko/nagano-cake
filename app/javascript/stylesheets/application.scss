@@ -217,7 +217,7 @@
 }
 
 .hover-color:hover {
-  background-color:#f3f3f3;
+  background-color: rgba(0,0,0,5%);
 }
 
 // Bootstrap CSS override
@@ -306,6 +306,11 @@ nav > div > p {
   color: white;
 }
 
+
+body {
+  background-color: #fff2e1;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -316,13 +321,13 @@ footer {
   color: white;
 }
 
-.outer{
+.outer {
   text-align: center;
 }
-.inner{
+.inner {
   display: inline-block;
 }
 
-.social{
+.social {
   margin-right: 10px;
 }
