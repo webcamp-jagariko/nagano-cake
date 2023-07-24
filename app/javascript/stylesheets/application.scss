@@ -220,6 +220,92 @@
   background-color:#f3f3f3;
 }
 
+// Bootstrap CSS override
+// btn-primary
+.btn-primary {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+.btn-primary:hover {
+  background-color: #142601;
+  border-color: #142601;
+}
+
+.btn-primary:active {
+  background-color: #122202 !important;
+  border-color: #122202 !important;
+}
+
+.btn-primary:focus {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+.btn-primary:visit {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+// btn-success
+.btn-success {
+  background-color: #99ba44;
+  border-color: #99ba44;
+  color: #2e5a00;
+}
+
+.btn-success:hover {
+  background-color: #89a63d;
+  border-color: #89a63d;
+  color: #2e5a00;
+}
+
+.btn-success:active {
+  background-color: #758e33 !important;
+  border-color: #758e33 !important;
+  color: #2e5a00;
+}
+
+.btn-success:focus {
+  background-color: #89a63d;
+  border-color: #89a63d;
+  color: #2e5a00;
+}
+
+// btn-danger
+.btn-danger {
+  background-color: #8d0912;
+  border-color: #8d0912;
+}
+
+.btn-danger:hover {
+  background-color: #6f080f;
+  border-color: #6f080f;
+}
+
+.btn-danger:active {
+  background-color: #4b050a !important;
+  border-color: #4b050a !important;
+}
+
+.btn-danger:focus {
+  background-color: #6f080f;
+  border-color: #6f080f;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #142601;
+}
+
+nav > div > p {
+  color: #142601;
+}
+
+.list-group-flush > .list-group-item {
+  background: #736050;
+  color: white;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -239,4 +325,3 @@ footer {
 
 .social{
   margin-right: 10px;
-}
