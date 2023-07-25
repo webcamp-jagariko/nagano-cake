@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-style" style="background-color: #D9BCA3">
   <div class="windowLayout container-fluid">
-    <a class="navbar-brand" style="font-family: Ariel; font-size: 26px" href="/homes/top">
+    <a class="navbar-brand" style="font-family: Ariel; font-size: 26px" href="/">
       <%= image_tag 'logo.png', style: "width: 90px"%>
     </a>
     <% if customer_signed_in? %>
@@ -61,7 +61,7 @@
         </div>
         <div class="search_form d-flex justify-content-end">
           <%= form_with url:search_path, method: :get do |f| %>
-          <%= f.text_field :word, class: "align-middle" %>
+          <%= f.text_field :word, placeholder: "商品名", class: "align-middle" %>
           <%= f.submit "検索", class: "btn btn-sm btn-primary" %>
           <% end %>
         </div>
