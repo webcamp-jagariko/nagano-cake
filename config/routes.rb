@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     get 'orders/new' => 'orders#new'
     get 'orders/complete' => 'orders#complete'
     post 'orders/confirm' => 'orders#confirm'
-    # get 'orders/show' => 'orders#show'
     resources :orders, only:  [:create, :show]
   end
 
@@ -34,7 +33,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
-    resources :customers, only: %i[index show edit update]
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :genre_searches, only: [:show]
     resources :order_searches, only: [:show]
@@ -53,5 +52,5 @@ devise_for :customers,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
