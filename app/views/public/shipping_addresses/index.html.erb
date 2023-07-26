@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container margin-y">
   <h2>配送先登録/一覧</h2>
     <%= form_with model: @shipping_address, url: shipping_addresses_path do |f| %>
     <%= render "layouts/form_errors", model: @shipping_address %>
@@ -13,22 +13,22 @@
   <table class="table" >
     <thead>
       <tr>
-        <th>郵便番号</th>
-        <th>住所</th>
-        <th>メールアドレス</th>
-        <th colspan="2"></th>
+        <th class="bg-brown">郵便番号</th>
+        <th class="bg-brown">住所</th>
+        <th class="bg-brown">メールアドレス</th>
+        <th colspan="2" class="bg-brown"></th>
       </tr>
     </thead>
     <tbody>
       <% @shipping_addresses.each do |shipping_address| %>
         <tr>
-          <td><%= shipping_address.post_code %></td>
-          <td><%= shipping_address.address %></td>
-          <td><%= shipping_address.name %></td>
-          <td>
+          <td class="bg-white"><%= shipping_address.post_code %></td>
+          <td class="bg-white"><%= shipping_address.address %></td>
+          <td class="bg-white"><%= shipping_address.name %></td>
+          <td class="bg-white">
             <%= link_to '編集する', edit_shipping_address_path(shipping_address), class: "btn btn-sm btn-success" %>
           </td>
-          <td>
+          <td class="bg-white">
             <%= link_to '削除する', shipping_address_path(shipping_address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
           </td>
         </tr>

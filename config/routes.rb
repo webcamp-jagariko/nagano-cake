@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdraw' => 'customers#withdraw'
 
-    get 'homes/top' => 'homes#top'
     get 'homes/about' => 'homes#about'
 
     resources :shipping_addresses, only:  [:index, :create, :edit, :update, :destroy]
