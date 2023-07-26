@@ -1,24 +1,43 @@
-# README
+<img width="1262" alt="image" src="https://github.com/webcamp-jagariko/nagano-cake/assets/121099971/99adc326-52ea-47e6-9712-beb302c83549">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+- 長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイトです。
 
-Things you may want to cover:
+## 案件の背景
+- 元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
 
-* Ruby version
+## 通販について
+- 通販では注文に応じて製作する受注生産型としている。
+- 現在通販での注文量は十分に対応可能な量のため、1日の受注量に制限は設けない。
+- 送料は1配送につき全国一律800円。
+- 友人や家族へのプレゼントなど、注文者の住所以外にも商品を発送できる。
+- 支払方法はクレジットカード、銀行振込から選択できる。
 
-* System dependencies
+## 設計書
+# ER図
+<img width="638" alt="image" src="https://github.com/webcamp-jagariko/nagano-cake/assets/121099971/002e85cc-ffb4-4e85-843d-f0d7f3d0e3c5">
 
-* Configuration
+# 開発環境
+- Cloud9
 
-* Database creation
+## 使用言語
+- HTML5
+- Ruby 3.1
+- SQlite3 3
 
-* Database initialization
+## フレームワーク
+- Ruby on Rails 6.1.7.4
 
-* How to run the test suite
+## Gem
+- device
+- bootstrap
+- jquery
+- dotenv-rails
+- kaminari
+- enum_help
+- image_processing
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発者
+- ゆき
+- ざき
+- いけちゃん
