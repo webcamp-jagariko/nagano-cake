@@ -1,0 +1,14 @@
+<div class="container margin-y">
+  <div class="col-md-10 offset-md-1">
+  <h4>配送先編集</h4>
+    <%= form_with model: @shipping_address, url: shipping_address_path do |f| %>
+    <%= render "layouts/form_errors", model: @shipping_address %>
+    <div class="field margin-y">
+      <%= render "public/shipping_addresses/ship_form", f: f %>
+      <div style="text-align: end">
+        <%= f.submit '変更内容を保存' ,class: "btn btn-success padding-x" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

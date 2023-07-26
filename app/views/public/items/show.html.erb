@@ -1,0 +1,40 @@
+<div class="margin-y container">
+  <div class="row">
+
+    <%= render 'layouts/search_genre', genres: @genres %>
+
+    <main class="col-md-9">
+      <div margin-y>
+
+      </div>
+      <h2>商品詳細</h2>
+      <div class="row margin-y">
+        <div class='col-md-5 text-center' style="min-width: 320px">
+            <%= image_tag @item.get_image(330, 230), class: "w-100 rounded-0 card-image-show text-center" %>
+        </div>
+
+        <div class='col-md-5 d-flex align-items-center justify-content-center'>
+          <div class="margin-y">
+            <div>
+              <h4><%= @item.name %></h4>
+              <p><%= @item.introduction %></p>
+              <h5 class="margin-y">￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）</h5>
+            </div>
+            <div>
+              <!--ログインユーザーのみ-->
+              <% if current_customer %>
+                <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                <div class="d-flex">
+                  <%= f.select :quantity, *[1..10], {include_blank: "個数選択"}, required: true, class: "form-control" %>
+                  <%= f.hidden_field :item_id, :value => @item.id %>
+                  <%= f.submit "カートに入れる", class: "btn btn-sm btn-success  margin-x" %>
+                </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

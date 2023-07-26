@@ -1,0 +1,342 @@
+@use '~bootstrap/scss/bootstrap';
+
+// team_template
+.windowLayout {
+  padding: 5px;
+    width: calc(100% - 150px);
+    min-width: 800px;
+}
+
+.nav-style {
+  padding: 1rem 5rem;
+}
+
+@media (max-width: 1000px) {
+  .windowLayout {
+      width: 100%;
+      min-width: unset;
+  }
+}
+
+.window-size {
+  width: 1200px;
+  margin:auto;
+}
+
+// サイドバー有コンテナ
+.window-padding {
+  margin:auto;
+  width:calc(100% - 100px);
+  padding: 2rem 0;
+}
+
+.sidebar-gap {
+  display:flex;
+  column-gap: 4%
+}
+
+.sidebar-width {
+  width: 21%;
+}
+
+.sidebar-main-width {
+  width: 75%;
+}
+
+// 中央寄せ用コンテナ
+.middle-container {
+  margin:auto;
+  width:calc(100% - 100px)
+}
+
+.middle-padding {
+  padding: 0 2rem;
+}
+
+//会員登録・ログイン
+.header_padding {
+  padding: 0 2rem;
+}
+
+.sub_container_position {
+  margin: 50px auto;
+}
+
+// public/customer/register
+.label-width {
+  width: 250px;
+}
+
+.label-position {
+  position: relative;
+}
+
+.field-width {
+  width: 200px;
+}
+
+.field-address {
+  width: 100%;
+}
+
+//customers/mypage
+.subtitle-width {
+  width: 100px;
+}
+
+//form内のinputの無いlabel用<p>
+.label-name {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.padding-y {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.padding-sm-y {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.padding-x {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.margin-x {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.margin-y {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+//homes
+.about-image {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.top-image {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+
+.top-image-box {
+  position: relative;
+}
+
+.top-image-text {
+  color: white;
+  background-color: rgba( 0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.card-image {
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-image-show {
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.align-right {
+  text-align: end;
+}
+
+//admin/items/
+.admin-item-image {
+  width: 300px;
+  height: 200px;
+}
+
+.admin-item-image-fit {
+  object-fit: cover;
+  object-position: center;
+}
+
+//admin/genres/
+.fit-content {
+  width: fit-content;
+}
+
+.td-fit {
+  width: 1%;
+}
+
+.pagination {
+  margin: 20px auto 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  span{
+    text-align: center;
+    width: 50px;
+    :hover{
+      background-color:#f3f3f3;
+      text-decoration: none;
+    }
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      :hover{
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
+.current {
+  color: black;
+}
+
+.link-style {
+  text-decoration: none;
+  color: black;
+}
+
+.link-style:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.hover-color:hover {
+  background-color: rgba(0,0,0,5%);
+}
+
+// Bootstrap CSS override
+// btn-primary
+.btn-primary {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+.btn-primary:hover {
+  background-color: #142601;
+  border-color: #142601;
+}
+
+.btn-primary:active {
+  background-color: #122202 !important;
+  border-color: #122202 !important;
+}
+
+.btn-primary:focus {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+.btn-primary:visit {
+  background-color: #274001;
+  border-color: #274001;
+}
+
+// btn-success
+.btn-success {
+  background-color: #99ba44;
+  border-color: #99ba44;
+  color: #2e5a00;
+}
+
+.btn-success:hover {
+  background-color: #89a63d;
+  border-color: #89a63d;
+  color: #2e5a00;
+}
+
+.btn-success:active {
+  background-color: #758e33 !important;
+  border-color: #758e33 !important;
+  color: #2e5a00;
+}
+
+.btn-success:focus {
+  background-color: #89a63d;
+  border-color: #89a63d;
+  color: #2e5a00;
+}
+
+// btn-danger
+.btn-danger {
+  background-color: #8d0912;
+  border-color: #8d0912;
+}
+
+.btn-danger:hover {
+  background-color: #6f080f;
+  border-color: #6f080f;
+}
+
+.btn-danger:active {
+  background-color: #4b050a !important;
+  border-color: #4b050a !important;
+}
+
+.btn-danger:focus {
+  background-color: #6f080f;
+  border-color: #6f080f;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #142601;
+}
+
+nav > div > p {
+  color: #142601;
+}
+
+.list-group-flush > .list-group-item {
+  background: #736050;
+  color: white;
+}
+
+
+body {
+  background-color: #fff2e1;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #142601;
+  color: white;
+}
+
+.outer {
+  text-align: center;
+}
+.inner {
+  display: inline-block;
+}
+
+.social {
+  margin-right: 10px;
+}
+
+.bg-brown {
+  background: #736050;
+  color: white;
+}
+
+.table-bordered td, .table-bordered th {
+  border-color: #56493e;
+}

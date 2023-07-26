@@ -1,0 +1,58 @@
+<div class="container">
+  <h4 class="margin-y">注文情報入力</h4>
+
+  <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
+  <div class="margin-y">
+    <h5>支払方法</h5>
+    <div class="margin-x">
+      <div>
+        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+      </div>
+
+      <div>
+        <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+        <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+      </div>
+    </div>
+  </div>
+
+  <div class="margin-y">
+    <h5>会員の方はこちらからログイン</h5>
+    <div class="margin-x">
+      <div style="margin-bottom: 10px">
+        <%= f.radio_button :address_number, 0, checked: "checked" %>
+        <span>ご自身の住所</span>
+        <div class="margin-x">
+          <%= "〒" %><%= @customer.post_code %>
+          <%= @customer.address %>
+          <%= @customer.last_name %><%= @customer.first_name %>
+        </div>
+      </div>
+      <div>
+        <% if @customer.shipping_addresses.present? %>
+          <%= f.radio_button :address_number, 1 %>
+        <% else %>
+          <%= f.radio_button :address_number, 1, disabled: true%>
+        <% end %>
+        <span>登録済住所から選択</span><br>
+        <% if @customer.shipping_addresses.present? %>
+        <div class="margin-x padding-sm-y">
+          <%= f.select :address_id ,options_from_collection_for_select(current_customer.shipping_addresses.all, :id, :address_display, params[:customer_id]) %>
+        </div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= f.radio_button :address_number, 2 %>
+        <span>新しいお届け先</span><br>
+        <div class="margin-x">
+          <%= render 'public/shipping_addresses/ship_form', f: f %>
+        </div>
+      </div>
+    </div>
+    <%= f.submit '確認画面に進む' , class: "btn btn-success" %>
+  </div>
+  <% end %>
+
+</div>

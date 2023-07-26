@@ -1,0 +1,27 @@
+<div class="margin-y container">
+  <div class="row">
+
+    <%= render 'layouts/search_genre', genres: @genres %>
+
+    <main class="col-md-9">
+      <div class="top-image-box">
+        <div class="top-image" style="background-image: url(<%= asset_path 'top_image.jpg' %>);"></div>
+        <p class="text-center top-image-text">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+
+      <div class="margin-y">
+        <h2>新規商品</h2>
+        <%= render 'public/items/items_layout', items: @items %>
+        <div class="align-right">
+          <%= link_to "全ての商品を見る＞", items_path %>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>

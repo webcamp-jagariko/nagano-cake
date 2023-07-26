@@ -1,0 +1,21 @@
+<div class="margin-y">
+  <div class="container margin-y">
+    <div class="row">
+      <% items.each do |item|%>
+      <div class="col-md-3 p-0 hover-color">
+        <div style="margin: 5px">
+          <%= link_to item_show_path(item.id), class: "text-decoration-none text-dark" do %>
+          <div class="card border-0">
+              <%= image_tag item.get_image(200, 150), class: "card-img-top rounded-0 card-image" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p>¥<%= item.add_tax_price.to_s(:delimited) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
