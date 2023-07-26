@@ -1,6 +1,5 @@
-<img width="1262" alt="image" src="https://github.com/webcamp-jagariko/nagano-cake/assets/121099971/99adc326-52ea-47e6-9712-beb302c83549">
-
-# 概要
+<img width="1261" alt="image" src="https://github.com/webcamp-jagariko/nagano-cake/assets/121099971/196da584-ece4-4ca6-aa78-82a648e874d8">
+## 概要
 - 長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイトです。
 
 ## 案件の背景
@@ -14,10 +13,10 @@
 - 支払方法はクレジットカード、銀行振込から選択できる。
 
 ## 設計書
-# ER図
+## ER図
 <img width="638" alt="image" src="https://github.com/webcamp-jagariko/nagano-cake/assets/121099971/002e85cc-ffb4-4e85-843d-f0d7f3d0e3c5">
 
-# 開発環境
+## 開発環境
 - Cloud9
 
 ## 使用言語
